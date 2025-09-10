@@ -7,3 +7,7 @@ for i in range(6):
 names = ["mbali","jabu","nhla"]
 for name in names:
     print(name)
+
+name = "Mbali"
+for char in name:
+    print(name)    
