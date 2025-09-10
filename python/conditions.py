@@ -1,4 +1,4 @@
-n = input("number: ")
+n = int(input("number: "))
 #indentation is very import
 if n > 0:
     print("n is positive")
