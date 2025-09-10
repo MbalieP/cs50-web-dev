@@ -11,3 +11,5 @@ s.remove(5)
 
 print(s)
 
+print(f"The set has{len(s)}elements.")
+
