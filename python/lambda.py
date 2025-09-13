@@ -12,4 +12,8 @@ people.sort()
 print(people)
     
 
+people.sort(key=lambda person: person["name"])
+
+print(people) 
+
 
