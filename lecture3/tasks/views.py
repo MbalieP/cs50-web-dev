@@ -30,9 +30,6 @@ def add(request):
                 "form":form
             })
 
-
-
-
     return render(request, "tasks/add.html",{
         "form":NewTaskForm()
     })
