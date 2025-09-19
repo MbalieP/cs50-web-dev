@@ -16,7 +16,8 @@ onblur-->
             fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
             .then(response => response.json())
             .then(data =>{
-                console.log(data);
+                const rate = data.rates.EUR;
+                document.querySelector('body').innerHTML = rate;
 
             });
 
@@ -25,10 +26,7 @@ onblur-->
 </head>
 <body>
     <h1> hello!</h1>
-    <select>
-        <option value="black">Black</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
+ 
 
     </select>
  
