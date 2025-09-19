@@ -1,46 +1,40 @@
-<!--onclick 
-onmouseover
-onkeydown
-onkeyup
-onload
-onblur-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <title>Currency Exhange</title>
+    <title>Currency Exchange</title>
     <script>
-
-        document.addEventListener('DOMContentLoaded',() => {
-
+        document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('form').onsubmit = function() {
-            fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
-            .then(response => response.json())
-            .then(data =>{
-                const currency = document.querySelector('#currency').value;
-                const rate = data.rates[currency];
-                if(rate !== undefined){
-                    document.querySelector('body').innerHTML = `1 USD is equal to ${rate.toFixed(3)} EUR.`;
-                }else{
-                    document.querySelector('#result').innerHTML = 'Invalid currrency.';
-                }
-                
-            });
-                return false
-            }
-
-           
-
+                // FIXED: Updated API endpoint (original was deprecated)
+                fetch('https://api.exchangerate-api.com/v4/latest/USD')
+                .then(response => response.json())
+                .then(data => {
+                    const currency = document.querySelector('#currency').value.toUpperCase();
+                    const rate = data.rates[currency];
+                    if (rate !== undefined) {
+                        // FIXED: Changed from 'EUR' to dynamic ${currency}
+                        document.querySelector('#result').innerHTML = `1 USD is equal to ${rate.toFixed(3)} ${currency}.`;
+                    } else {
+                        document.querySelector('#result').innerHTML = 'Invalid currency.';
+                    }
+                })
+                .catch(error => {
+                    console.log('Error:', error);
+                    // FIXED: Added error message display
+                    document.querySelector('#result').innerHTML = 'An error occurred.';
+                });
+                // FIXED: Added return false to prevent form submission
+                return false;
+            }; // FIXED: Added closing brace and semicolon
         });
     </script>
 </head>
 <body>
     <form>
-        <input id="currency" placeholder="currency" type="text">
-        <input type ="submit" value="Convert">
+        <input id="currency" placeholder="Currency" type="text">
+        <input type="submit" value="Convert">
     </form>
-    <div id="result"
- 
+    <!-- FIXED: Added closing div tag -->
+    <div id="result"></div>
 </body>
 </html>
