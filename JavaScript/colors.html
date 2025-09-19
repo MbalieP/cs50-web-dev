@@ -6,14 +6,8 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', function(){
+           documenr 
 
-            document.querySelectorAll('button').forEach(function(button) {
-                button.onclick = function(){
-                    document.querySelector('h1').style.color = button.dataset.color;
-                }
-            })
-       
-            
         })
        
         
@@ -21,10 +15,12 @@
 </head>
 <body>
     <h1> hello!</h1>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
 
-    <button data-color="red">red</button>
-    <button data-color="blue">blue</button>
-    <button data-color="green">green</button>
+    </select>
  
 </body>
 </html>
