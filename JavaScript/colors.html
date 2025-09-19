@@ -5,10 +5,13 @@
     <title>colors</title>
     <script>
 
-        document.addEventListener('DOMContentLoaded', function(){
-           documenr 
+        document.addEventListener('DOMContentLoaded',() => {
+            document.querySelector('select').onchange = function() {
+                document.querySelector('h1').style.color = this.value;
 
-        })
+           }
+
+        });
        
         
     </script>
