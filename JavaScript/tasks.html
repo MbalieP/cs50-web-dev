@@ -5,17 +5,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('form').onsubmit = () => {
-                const Task = document.querySelector('#task').value;
+                const task = document.querySelector('#task').value;
 
                 const li = document.createElement('li');
-                li.innerHTML = tasks;
+                li.innerHTML = task;
 
-                document.querySelector('#asks').append(li)
+                document.querySelector('#tasks').append(li);
+                document.querySelector('#task').value = '';
                 
-                //stop form from from submitting
-                return false
-
-            }
+                // Stop form from submitting
+                return false;
+            };
         });
     </script>
 </head>
@@ -24,9 +24,8 @@
     <ul id="tasks">
     </ul>
     <form>
-        <input id="task" placeholder="new Tasks" type="text">
+        <input id="task" placeholder="New Task" type="text">
         <input type="submit">
     </form>
-    
 </body>
 </html>
