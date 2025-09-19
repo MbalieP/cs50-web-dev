@@ -1,0 +1,36 @@
+<!--onclick 
+onmouseover
+onkeydown
+onkeyup
+onload
+onblur-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Currency Exhange</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded',() => {
+            fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
+            .then(response => response.json())
+            .then(data =>{
+                console.log(data);
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1> hello!</h1>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+
+    </select>
+ 
+</body>
+</html>
