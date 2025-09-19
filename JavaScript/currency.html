@@ -13,22 +13,34 @@ onblur-->
     <script>
 
         document.addEventListener('DOMContentLoaded',() => {
+
+            document.querySelector('form').onsubmit = function() {
             fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
             .then(response => response.json())
             .then(data =>{
-                const rate = data.rates.EUR;
-                document.querySelector('body').innerHTML = `1 USD is equal to ${rate.toFixed(3)} EUR.`;
-
+                const currency = document.querySelector('#currency').value;
+                const rate = data.rates[currency];
+                if(rate !== undefined){
+                    document.querySelector('body').innerHTML = `1 USD is equal to ${rate.toFixed(3)} EUR.`;
+                }else{
+                    document.querySelector('#result').innerHTML = 'Invalid currrency.';
+                }
+                
             });
+                return false
+            }
+
+           
 
         });
     </script>
 </head>
 <body>
-    <h1> hello!</h1>
- 
-
-    </select>
+    <form>
+        <input id="currency" placeholder="currency" type="text">
+        <input type ="submit" value="Convert">
+    </form>
+    <div id="result"
  
 </body>
 </html>
