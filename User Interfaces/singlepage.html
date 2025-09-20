@@ -4,16 +4,31 @@
     <title>Single Page</title>
     <style>
         div{
-            display: none
+            display: none;
         }
     </style>
     <script>
        function showPage(page){
-        document.querySelectorAll('div').forEach(div=> {
-            div.style.display=none
-        })
+        // Hide all div elements
+        document.querySelectorAll('div').forEach(div => {
+            div.style.display = 'none';  // Fixed: Added quotes around 'none'
+        });
+        // Show the selected page
         document.querySelector(`#${page}`).style.display = 'block';
-       }
+    }
+    
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function(){
+        // Add click event to all buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.onclick = function(){
+                showPage(this.dataset.page);
+            };
+        });
+        
+        // Show the first page by default
+        showPage('page1');
+    });
     </script>
 </head>
 <body>
@@ -30,6 +45,5 @@
     <div id="page3">
         <h1>This is page 3.</h1>
     </div>
-    
 </body>
 </html>
